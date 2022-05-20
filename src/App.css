@@ -36,3 +36,174 @@
     transform: rotate(360deg);
   }
 }
+
+#navbar{
+  height: 60px;
+  background-color: #484e5c;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0px 0px 10px 0px #00000096;
+}
+
+#navbar-logo{
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  float: left;
+}
+
+#main-container{
+  background-color: #f2f2ea;
+  min-height: 100vh;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: row;
+}
+
+#left-column{
+  padding-top: 20px;
+  width: 30%;
+  background-color: #3a788f;
+  min-height: 100vh;
+  min-width: 300px;
+}
+
+#right-column{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#event{
+  border-style: solid;
+  border-width: .01em;
+  border-color: #ced1d6;
+  margin-top: 25px;
+  padding-bottom: 25px;
+  width: 80%;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: white;
+}
+
+#show-details{
+  background-color: #F3C56F;
+  width: 200px;
+  padding: 10px;
+  text-transform: uppercase;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  border-style: none;
+  border-radius: 22px;
+}
+
+#show-details:hover, #show-details:focus{
+  background-color: #e2a83d;
+}
+
+#show-details:active{
+  background-color: #3a788f;
+}
+
+#show-details:visted{
+  background-color: #F3C56F;
+}
+
+#eventSummary{
+  color: #484e5c;
+  text-align: left;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  margin-top: 25px;
+}
+
+#eventDescription{
+  text-align: left;
+  color: #2a2f39;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+#eventLocation{
+  text-align: left;
+  color: #2a2f39;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+#dateTimeStart{
+  text-align: left;
+  color: #2a2f39;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+#eventListItem{
+  text-align: left;
+  list-style: none;
+}
+
+#citySearchBar{
+  list-style: none;
+}
+
+#citySearchSuggestion{
+  list-style: none;
+  background-color: #78b6cf;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-right: 40px;
+  margin-left: 8px
+}
+
+#searchTitle{
+  padding-top: 25px;
+  color: white;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+#seeAll{
+  margin-top: 10px;
+  color: white;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 100px
+}
+
+.city{
+  background-color: white;
+  border-width: none;
+  height: 50px;
+  width: 80%;
+  padding-left: 25px;
+  border-style: none;
+}
+
+#showItems{
+  color: white;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+#numberOfEvents{
+  height: 50px;
+  width: 100px;
+  padding: 5px;
+  color: #484e5c;
+  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  float: left;
+  margin-left: 38px;
+  margin-top: 100px;
+}

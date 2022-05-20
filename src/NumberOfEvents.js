@@ -11,6 +11,7 @@ class NumberOfEvents extends Component {
       <div className="NumberOfEvents">
 
       <input
+        id="numberOfEvents"
         className="numberOfEvents"
         type="number"
         value={this.props.numberOfEvents} >
