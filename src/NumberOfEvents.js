@@ -3,10 +3,19 @@ import React, { Component } from 'react';
 class NumberOfEvents extends Component {
   
   state = {
-    numberOfEvents: '32'
+    numberOfEvents: '32',
   }
 
+  inputChanged = (event) => {
+    //if no number is set, numberValue is set to 32 by default
+    const numberValue = event.target.value;
+    this.setState({ numberOfEvents: numberValue });
+    this.props.updateNumber(numberValue);
+  };
+
   render(){
+    // const { events, updateNumber } = this.props;
+
     return (
       <div className="NumberOfEvents">
 
@@ -14,7 +23,8 @@ class NumberOfEvents extends Component {
         id="numberOfEvents"
         className="numberOfEvents"
         type="number"
-        value={this.props.numberOfEvents} >
+        placeholder = {this.state.numberOfEvents}
+        onChange={this.inputChanged} >
         </input>
 
       </div>
