@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class NumberOfEvents extends Component {
   
   state = {
-    numberOfEvents: ''
+    numberOfEvents: '32'
   }
 
   render(){
