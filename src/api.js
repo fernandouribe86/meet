@@ -29,7 +29,7 @@ export const getEvents = async () => {
   const token = await getAccessToken();
   if(token){
     removeQuery();
-    const url = "https://pjl9bjclyg.execute-api.us-west-1.amazonaws.com/dev/api/get-events/" + '/' + token;
+    const url = 'https://pjl9bjclyg.execute-api.us-west-1.amazonaws.com/dev/api/get-events' + '/' + token;
     const result = await axios.get(url);
     if (result.data){
       var locations = extractLocations(result.data.events);
@@ -73,15 +73,14 @@ const getToken = async (code) => {
   try {
       const encodeCode = encodeURIComponent(code);
 
-      const response = await fetch(
-    "https://pjl9bjclyg.execute-api.us-west-1.amazonaws.com/dev/api/token" + '/' + encodeCode);
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-    }
-    const { access_token } = await response.json();
-    access_token && localStorage.setItem("access_token", access_token);
-    return access_token;
-   } catch(error) {
-    error.json(); 
+      const response = await fetch('https://pjl9bjclyg.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      const { access_token } = await response.json();
+      access_token && localStorage.setItem("access_token", access_token);
+      return access_token;
+  } catch(error) {
+      error.json();
   }
 };
