@@ -28,7 +28,7 @@ class Event extends Component {
           </button>
 
           {this.state.buttonExpanded && (
-            <div className="details">
+            <div className="eventDetails">
               <h2 className="about">About the event</h2>
               <a href={event.htmlLink} className="calendar-link">
                 See details on Google Calendar
