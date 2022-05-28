@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// IMPORT ATATUS
+import * as atatus from 'atatus-spa';
+atatus.config('d3c849e2033840ffa951e34cdd7d1319').install();
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
