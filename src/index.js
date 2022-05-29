@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from '../src/service-worker';
 import * as serviceWorkerRegistration from '../src/serviceWorkerRegistration';
-import * as atatus from 'atatus-js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
