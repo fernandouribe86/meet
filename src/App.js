@@ -7,6 +7,10 @@ import { extractLocations, getEvents } from './api';
 import { mockData } from "./mock-data";
 import Navbar from './nav-bar';
 
+import {
+  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip
+} from 'recharts';
+
 import './nprogress.css';
 
 class App extends Component {
@@ -14,17 +18,6 @@ class App extends Component {
     events: mockData,
     locations: [],
   }
-
-  // updateEvents = (location) => {
-  //   getEvents().then((events) => {
-  //     const locationEvents = (location === 'all') ?
-  //       events :
-  //       events.filter((event) => event.location === location);
-  //     this.setState({
-  //       events: locationEvents
-  //     });
-  //   });
-  // }
 
   updateEvents = (location) => {
     getEvents().then((events) => {
@@ -61,6 +54,17 @@ class App extends Component {
     });
 };
 
+// COUNT NUMBER OF EVENTS PER LOCATION
+  getData = () => {
+    const {locations, events} = this.state;
+    const data = locations.map((location)=>{
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(', ').shift()
+      return {city, number};
+    })
+    return data;
+  };
+
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
@@ -85,6 +89,18 @@ class App extends Component {
             <NumberOfEvents updateNumber={this.updateNumber} />
             </div>
             <div id="right-column">
+              <ScatterChart
+                width={400}
+                height={400}
+                margin={{
+                  top: 20, right: 20, bottom: 20, left: 20,
+                }} >
+                  <CartesianGrid />
+                  <XAxis type="category" dataKey="city" name="city" />
+                  <YAxis allowDecimals={false} type="number" dataKey="number" name="number of events" />
+                  <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                    <Scatter data={this.getData()} fill="#8884d8" />
+                </ScatterChart>
               <EventList events ={this.state.events} />
             </div>
           </div>
