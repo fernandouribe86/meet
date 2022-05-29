@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import * as serviceWorker from '../src/serviceWorker';
+import * as serviceWorker from '../src/service-worker';
 import * as serviceWorkerRegistration from '../src/serviceWorkerRegistration';
 import * as atatus from 'atatus-js';
 
