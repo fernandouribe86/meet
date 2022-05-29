@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-// IMPORT ATATUS
-import * as atatus from 'atatus-spa';
-atatus.config('d3c849e2033840ffa951e34cdd7d1319').install();
+import * as serviceWorker from '../src/serviceWorker';
+import * as serviceWorkerRegistration from '../src/serviceWorkerRegistration';
+import * as atatus from 'atatus-js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +14,7 @@ root.render(
   </React.StrictMode>
 );
 
+serviceWorker.unregister();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
