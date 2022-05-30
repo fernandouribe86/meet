@@ -6,6 +6,7 @@ import NumberOfEvents from './NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import { mockData } from "./mock-data";
 import Navbar from './nav-bar';
+import EventGenre from './EventGenre';
 
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
@@ -87,6 +88,7 @@ class App extends Component {
             <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
 
             <NumberOfEvents updateNumber={this.updateNumber} />
+            <EventGenre events={this.state.events} />
             </div>
             <div id="right-column">
               <ResponsiveContainer height={400} >
