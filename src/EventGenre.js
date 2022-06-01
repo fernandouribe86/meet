@@ -3,6 +3,7 @@ import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';
 
 export const EventGenre = ({events}) => {
 
+
     const [data, setData] = useState([]);
     useEffect(() => {
       const getData = () => {
@@ -13,14 +14,15 @@ export const EventGenre = ({events}) => {
         });
         return data;
       };
-      setData(() => getData());
+      const dt = getData().filter(x=>x.value!==0)
+      setData(dt);
+      // setData(() => getData());
+
     }, 
     [events]
     );
     
     const colors = ['#694966', '#F3C56F', '#F2F2EA', '#011627'];
-
-    const RADIAN = Math.PI / 180;
 
     return (
       <ResponsiveContainer height={400} id="eventGenreContainer">
@@ -32,7 +34,7 @@ export const EventGenre = ({events}) => {
             labelLine={false}
             outerRadius={80}
             stroke="#3a788f"
-            datakey='value'
+            dataKey='value'
             label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
           >
             {data.map((entry, index) => (
