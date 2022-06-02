@@ -47,32 +47,24 @@ class App extends Component {
     });
   };
 
-  //update number will interact with NumberOfEvents component to update the eventsLength state, which in return updates the events state
-//   updateNumber = (number) => {
-//     getEvents().then((events) => {
-//       const numberEvents =
-//         number === 0
-//           ? //if no number is entered, 32 events get displayed
-//             events
-//           : //if number is entered, set number of events gets displayed
-//             events.slice(0, number)
-//       this.setState({
-//         //events length set to number specified
-//         eventsLength: number,
-//         //events state set to const numberEvents variable
-//         events: numberEvents
-//       });
-//     this.setState({
-//       eventsLength: number,
-//     });
-//     });
-// };
-
-updateNumber = (numberOfEvents) => {
-  this.setState({
-    numberOfEvents,
-  })
+  // update number will interact with NumberOfEvents component to update the eventsLength state, which in return updates the events state
+  updateNumber = (number) => {
+    getEvents().then((events) => {
+      const numberEvents =
+        number === 0
+          ? //if no number is entered, 32 events get displayed
+            events
+          : //if number is entered, set number of events gets displayed
+            events.slice(0, number)
+      this.setState({
+        //events length set to number specified
+        eventsLength: number,
+        //events state set to const numberEvents variable
+        events: numberEvents
+      });
+    });
 };
+
 
 // COUNT NUMBER OF EVENTS PER LOCATION
   getData = () => {
@@ -107,11 +99,10 @@ updateNumber = (numberOfEvents) => {
           <div id="left-column">
             <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
 
-            <NumberOfEvents 
-              updateNumber={(number) => {
-                this.updateNumber(number);
-                }} 
-              />
+            <NumberOfEvents
+          updateNumber={(number) => {
+            this.updateNumber(number);
+          }} />
             <EventGenre events={this.state.events} />
             </div>
             <div id="right-column">
