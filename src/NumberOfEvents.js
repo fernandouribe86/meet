@@ -22,7 +22,7 @@ class NumberOfEvents extends Component {
         errorText: "",
       });
     }
-    this.props.updateNumberOfEvents(value);
+    this.props.updateNumber(value);
   };
 
   render(){

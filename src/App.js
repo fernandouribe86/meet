@@ -16,43 +16,80 @@ import './nprogress.css';
 
 class App extends Component {
   state= {
-    events: mockData,
+    events: [],
     locations: [],
+    numberOfEvents: 32,
   }
 
-  updateEvents = (location) => {
+  // updateEvents = (location) => {
+  //   getEvents().then((events) => {
+  //     const numberEvent = this.updateNumber();
+  //     const locationEvents =
+  //       location === "all"
+  //         ? events
+  //         : events.filter((event) => event.location === location);
+  //         console.log(locationEvents);
+  //         const evt = locationEvents.slice(0, numberEvent);
+  //     if(this.mounted){
+  //         this.setState({
+  //       eventsLength: numberEvent,
+  //       events: evt,
+  //     });
+  //   };
+  //   });
+  // };
+
+  updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
-      const numberEvent = this.updateNumber();
       const locationEvents =
         location === "all"
           ? events
           : events.filter((event) => event.location === location);
-      this.setState({
-        eventsLength: numberEvent,
-        events: locationEvents.slice(0, numberEvent),
-      });
+      if (this.mounted) {
+        this.setState({
+          events: locationEvents.slice(0, this.state.numberOfEvents),
+          currentLocation: location,
+          numberOfEvents: eventCount,
+        });
+
+        if (!navigator.onLine) {
+          this.setState({
+            infoText: 'The app is currently offline'
+          });
+        } else {
+          this.setState({
+            infoText: ''
+          });
+        }
+      }
     });
   };
 
   //update number will interact with NumberOfEvents component to update the eventsLength state, which in return updates the events state
-  updateNumber = (number) => {
-    getEvents().then((events) => {
-      const numberEvents =
-        number === 0
-          ? //if no number is entered, 32 events get displayed
-            events
-          : //if number is entered, set number of events gets displayed
-            events.slice(0, number)
-      this.setState({
-        //events length set to number specified
-        eventsLength: number,
-        //events state set to const numberEvents variable
-        events: numberEvents
-      });
-    this.setState({
-      eventsLength: number,
-    });
-    });
+//   updateNumber = (number) => {
+//     getEvents().then((events) => {
+//       const numberEvents =
+//         number === 0
+//           ? //if no number is entered, 32 events get displayed
+//             events
+//           : //if number is entered, set number of events gets displayed
+//             events.slice(0, number)
+//       this.setState({
+//         //events length set to number specified
+//         eventsLength: number,
+//         //events state set to const numberEvents variable
+//         events: numberEvents
+//       });
+//     this.setState({
+//       eventsLength: number,
+//     });
+//     });
+// };
+
+updateNumber = (numberOfEvents) => {
+  this.setState({
+    numberOfEvents,
+  });
 };
 
 // COUNT NUMBER OF EVENTS PER LOCATION
@@ -66,7 +103,7 @@ class App extends Component {
     return data;
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
       this.setState({ events, locations: extractLocations(events) });
