@@ -21,24 +21,6 @@ class App extends Component {
     numberOfEvents: 32,
   }
 
-  // updateEvents = (location) => {
-  //   getEvents().then((events) => {
-  //     const numberEvent = this.updateNumber();
-  //     const locationEvents =
-  //       location === "all"
-  //         ? events
-  //         : events.filter((event) => event.location === location);
-  //         console.log(locationEvents);
-  //         const evt = locationEvents.slice(0, numberEvent);
-  //     if(this.mounted){
-  //         this.setState({
-  //       eventsLength: numberEvent,
-  //       events: evt,
-  //     });
-  //   };
-  //   });
-  // };
-
   updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
       const locationEvents =
@@ -89,7 +71,7 @@ class App extends Component {
 updateNumber = (numberOfEvents) => {
   this.setState({
     numberOfEvents,
-  });
+  })
 };
 
 // COUNT NUMBER OF EVENTS PER LOCATION
@@ -106,7 +88,8 @@ updateNumber = (numberOfEvents) => {
   async componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
-      this.setState({ events, locations: extractLocations(events) });
+      // this.setState({ events, locations: extractLocations(events) });
+      this.setState({ events: events.slice(0, this.state.numberOfEvents), locations: extractLocations(events) });
     });
     console.log(this.state.events);
   }
@@ -124,7 +107,11 @@ updateNumber = (numberOfEvents) => {
           <div id="left-column">
             <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
 
-            <NumberOfEvents updateNumber={this.updateNumber} />
+            <NumberOfEvents 
+              updateNumber={(number) => {
+                this.updateNumber(number);
+                }} 
+              />
             <EventGenre events={this.state.events} />
             </div>
             <div id="right-column">
