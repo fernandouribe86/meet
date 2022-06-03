@@ -60,7 +60,7 @@ class App extends Component {
         //events length set to number specified
         eventsLength: number,
         //events state set to const numberEvents variable
-        events: numberEvents
+        events: numberEvents,
       });
     });
 };
