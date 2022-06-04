@@ -20,7 +20,8 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    showWelcomeScreen: undefined
+    showWelcomeScreen: undefined,
+    hide: "",
   }
 
   async componentDidMount() {
@@ -29,7 +30,7 @@ class App extends Component {
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    this.setState({ showWelcomeScreen: !(code || isTokenValid)});
     if ((code || isTokenValid) && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
