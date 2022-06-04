@@ -22,7 +22,7 @@ export const EventGenre = ({events}) => {
     [events]
     );
     
-    const colors = ['#00FFFF', '#41BEFC', '#7A85FA', '#BA45F8', '#323B4F'];
+    const colors = ['#00FFFF', '#41BEFC', '#6B49CE', '#BA45F8', '#323B4F'];
 
     return (
       <ResponsiveContainer id="eventGenreContainer" width="100%" height={400}>
