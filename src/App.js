@@ -106,18 +106,14 @@ class App extends Component {
             <EventGenre events={this.state.events} />
             </div>
             <div id="right-column">
-              <ResponsiveContainer height={400} >
+              <ResponsiveContainer height={300} width="100%" id="scatterChartContainer">
                 <ScatterChart
-                  width={800}
-                  height={400}
-                  margin={{
-                    top: 20, right: 20, bottom: 20, left: 20,
-                  }} >
+                  id="scatterChart" >
                     <CartesianGrid />
-                    <XAxis type="category" dataKey="city" name="city" />
-                    <YAxis allowDecimals={false} type="number" dataKey="number" name="number of events" />
+                    <XAxis type="category" dataKey="city" name="City" id="xAxis" />
+                    <YAxis allowDecimals={false} type="number" dataKey="number" name="Events" />
                     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                      <Scatter data={this.getData()} fill="#8884d8" />
+                      <Scatter id="scatter" data={this.getData()} fill="#FF00F5" />
                     </ScatterChart>
                 </ResponsiveContainer>
               <EventList events ={this.state.events} />

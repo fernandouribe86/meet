@@ -40,28 +40,30 @@ class CitySearch extends Component {
 
   render(){
     return (
-      <div className="CitySearch">
-        <span id="searchTitle">SEARCH</span>
-        <InfoAlert id="infoAlert" text={this.state.infoText} />
-        <input 
-          type="text"
-          className="city"
-          value = {this.state.query}
-          onChange={this.handleInputChanged}
-          placeholder="Try a city like 'London' or 'Berlin'"
-          onFocus={ () => { this.setState({ showSuggestions: true })}}
-          />
-          <ul className='suggestions' style={this.state.showSuggestions ? {}: { display: 'none'}}>
-            {this.state.suggestions.map((suggestion) => (
-              <li id="citySearchSuggestion"
-              key={suggestion}
-              onClick= {() => this.handleItemClicked(suggestion)}
-              >{suggestion}</li>
-            ))}
-            <li id="citySearchBar" onClick={() => this.handleItemClicked("all")}>
-              <p id="seeAll">See all cities</p>
-            </li>
-          </ul>
+      <div className="CitySearch" id="citySearch">
+        <p id="searchTitle">search</p>
+        <div id="searchBarContainer">
+          <input 
+            type="text"
+            className="city"
+            value = {this.state.query}
+            onChange={this.handleInputChanged}
+            placeholder="Try a city like 'London' or 'Berlin'"
+            onFocus={ () => { this.setState({ showSuggestions: true })}}
+            />
+            <ul className='suggestions' style={this.state.showSuggestions ? {}: { display: 'none'}}>
+              {this.state.suggestions.map((suggestion) => (
+                <li id="citySearchSuggestion"
+                key={suggestion}
+                onClick= {() => this.handleItemClicked(suggestion)}
+                >{suggestion}</li>
+              ))}
+              <li id="citySearchBar" onClick={() => this.handleItemClicked("all")}>
+                <p id="seeAll">See all cities</p>
+              </li>
+            </ul>
+            <InfoAlert id="infoAlert" text={this.state.infoText} />
+        </div>
       </div>
     );
   }

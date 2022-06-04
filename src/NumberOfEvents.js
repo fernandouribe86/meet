@@ -26,12 +26,12 @@ class NumberOfEvents extends Component {
   render(){
 
     return (
-      <div className="NumberOfEvents">
+      <div className="NumberOfEvents" id="numberOfEventsContainer">
 
 
 
 
-
+<ErrorAlert text={this.state.errorText} />
       <input id="numberOfEvents" 
         type='number' 
         className='inputEventNumber' 
@@ -39,8 +39,8 @@ class NumberOfEvents extends Component {
         value={this.state.numberOfEvents}>
 
       </input>
-      <p>Choose Number of Events to Display</p>
-      <ErrorAlert text={this.state.errorText} />
+      <p id="choose">Events to display</p>
+      
       </div>
     );
   }

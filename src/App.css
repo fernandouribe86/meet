@@ -38,8 +38,8 @@
 }
 
 #navbar{
-  height: 60px;
-  background-color: #484e5c;
+  height: 85px;
+  background-color: #000000;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -47,7 +47,7 @@
 }
 
 #navbar-logo{
-  height: 35px;
+  height: 60px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 25px;
@@ -55,23 +55,23 @@
 }
 
 #main-container{
-  background-color: #f2f2ea;
+  background-color: #D7D8DA;
   min-height: 100vh;
-  padding-top: 60px;
+  padding-top: 80px;
   display: flex;
   flex-direction: row;
 }
 
 #left-column{
-  padding-top: 20px;
+  padding-top: 25px;
   width: 30%;
-  background-color: #3a788f;
-  min-height: 100vh;
   min-width: 300px;
+  background-color: #1f1f1f;
+  min-height: 100vh;
 }
 
 #right-column{
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,65 +80,79 @@
 #event{
   border-style: solid;
   border-width: .01em;
-  border-color: #ced1d6;
   margin-top: 25px;
   padding-bottom: 25px;
-  width: 80%;
+  width: 95%;
+  margin-left: 0;
   padding-left: 50px;
   padding-right: 50px;
-  background-color: white;
+  background-color: #1f1f1f;
+  border-radius: 7px;
 }
 
 #show-details{
-  background-color: #F3C56F;
+  background-color: #00FFFF;
   width: 200px;
   padding: 10px;
   text-transform: uppercase;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
   font-weight: 500;
   border-style: none;
-  border-radius: 22px;
+  border-radius: 7px;
 }
 
 #show-details:hover, #show-details:focus{
-  background-color: #e2a83d;
+  background-color: #00cbcb;
 }
 
 #show-details:active{
   background-color: #3a788f;
 }
 
-#show-details:visted{
-  background-color: #F3C56F;
+#date{
+  text-align: left;
+  color: #ffffff;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+
+
+ul.EventList{
+  width: 100%;
 }
 
 #eventSummary{
-  color: #484e5c;
+  color: #FF00F5;
   text-align: left;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  text-transform: lowercase;
+  font-style: italic;
   margin-top: 25px;
+  text-decoration: underline;
+  text-decoration-style: solid;
 }
 
 #eventDescription{
   text-align: left;
-  color: #2a2f39;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
   font-size: 18px;
 }
 
 #eventLocation{
   text-align: left;
-  color: #2a2f39;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
 
 #dateTimeStart{
   text-align: left;
-  color: #2a2f39;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
   font-size: 18px;
 }
 
@@ -147,67 +161,181 @@
   list-style: none;
 }
 
+#citySearch{
+  width: 100%;
+}
+
 #citySearchBar{
   list-style: none;
 }
 
 #citySearchSuggestion{
   list-style: none;
-  background-color: #78b6cf;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  background-color: #7f7f7f;
+  color: #FFFFFF;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
   font-size: 18px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  margin-right: 40px;
-  margin-left: 8px
+  width: 100%;
+  list-style-type: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#citySearchSuggestion:hover, #citySearchSuggestion:focus{
+  background-color: #00FFFF;
+  color: black;
+  cursor: pointer;
 }
 
 #searchTitle{
   padding-top: 25px;
-  color: white;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
-  font-size: 26px;
-  font-weight: 700;
-  text-transform: capitalize;
+  color: #00FFFF;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  font-style: italic;
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom: -10px;
+}
+
+#searchBarContainer{
+  width: 100%;
+}
+
+#searchBarContainer ul{
+  list-style: none;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 #seeAll{
-  margin-top: 10px;
-  color: white;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  color: #00FFFF;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
   font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 100px
+  font-weight: 600;
+  margin-bottom: 25px;
+  background-color: #474747;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#seeAll:hover, #seeAll:focus{
+  background-color: #00FFFF;
+  color: black;
+  cursor: pointer;
 }
 
 .city{
   background-color: white;
+  color: #2e2e2e;
   border-width: none;
   height: 50px;
-  width: 80%;
+  width: 100%;
   padding-left: 25px;
   border-style: none;
+  text-align: left;
+}
+
+#citySearch{
+  margin-top: -35px;
 }
 
 #showItems{
   color: white;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 700;
   margin-top: 25px;
 }
 
+#numberOfEventsContainer{
+  width: 100%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: left;
+ margin-top: 50px;
+}
+
 #numberOfEvents{
   height: 50px;
-  width: 200px;
+  width: 100%;
   padding: 5px;
-  color: #484e5c;
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
-  float: left;
-  margin-left: 38px;
-  margin-top: 100px;
+  padding-left: 20px;
+  background-color: #7f7f7f;
+  color: white;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
+  border-style: none;
+}
+
+#choose{
+  color: #7f7f7f;
+  font-size: 14px;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 5px;
 }
 
 #eventGenreContainer{
-  margin-top: 1000px;
+  margin-top: 50px;
+  background-color: #7f7f7f;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
+  width: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#eventGenre{
+  width: 100%;
+  text-align: center;
+}
+
+
+
+#infoAlert{
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-bottom: -15px;
+}
+
+#dateTimeStart{
+  color: #FF00F5;
+  font-weight: 800;
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 22px;
+}
+
+#toCal{
+  color: #00FFFF;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
+}
+
+#scatterChartContainer{
+  margin-left: -50px;
+  margin-top: 20px;
+  display: flex;
+}
+
+#scatterChart{
+  width: 100%;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+#scatter:hover, #scatter:focus{
+  fill: #00FFFF;
+  font-family: 'Overpass', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+#xAxis{
+  text-transform: uppercase;
+  
 }

@@ -1,43 +1,62 @@
 import React, { Component } from 'react';
 
 class Event extends Component {
-  state = {
-    buttonExpanded: false
-  };
 
-  showDetailsToggle() {
-    //if there is a click, the state goes from false to true, then true to false
-    this.setState({ buttonExpanded: !this.state.buttonExpanded });
+  state={
+    collapsed: true
   }
+
+  handleDetailsClicked = () => {
+      this.setState({
+        collapsed: !this.state.collapsed
+      });
+  };
 
   render() {
     const {event} =this.props;
-    return <div id="event">
-      <h1 id="eventSummary">{event.summary}</h1>
-      <p id="eventDescription">{event.description}</p>
-      <p id="eventLocation">{event.location}</p>
+    const { collapsed } = this.state;
+    const dateStart = new Date(event.start.dateTime);
+    const dateEnd = new Date(event.end.dateTime);
 
-      <p id="dateTimeStart">{event.start.dateTime}</p>
-      <div className="details-container">
-          <button
-            onClick={() => this.showDetailsToggle()}
-            className={this.state.buttonExpanded ? "show-less" : "show-more"}
-          >
-            {/**button text is hide details if state is true, otherwise it's "see details" */}
-            {this.state.buttonExpanded ? "Hide details" : "See details"}
-          </button>
+    let day = dateStart.getDate();
+    console.log(day);
+    let month = dateStart.getMonth();
+    console.log(month);
+    let year = dateStart.getFullYear();
+    console.log(year);
 
-          {this.state.buttonExpanded && (
-            <div className="eventDetails">
-              <h2 className="about">About the event</h2>
-              <a href={event.htmlLink} className="calendar-link">
-                See details on Google Calendar
-              </a>
-              <p className="event-summary">{event.description}</p>
-            </div>
-          )}
-        </div>
-    </div>;
+    function formatAMPM(dateStart) {
+      var hours = dateStart.getHours();
+      var minutes = dateStart.getMinutes();
+      var ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      minutes = minutes < 10 ? '0'+minutes : minutes;
+      var strTime = hours + ':' + minutes + ' ' + ampm;
+      return strTime;
+    }
+    
+    console.log(formatAMPM(dateStart));
+    console.log(formatAMPM(dateEnd));
+   
+        
+    return <div id='event'>
+      
+        <h1 id='eventSummary'>{event.summary}</h1>
+        <p id='eventLocation'>{event.location}</p>
+        <p id="date">Date: {month}/{day}/{year}</p>
+        
+        <button id='show-details' onClick={this.handleDetailsClicked}>{collapsed ? 'show Details' : 'Hide Details'}</button>
+
+        {!collapsed && (
+          <div id="eventDetails">
+            <p id='dateTimeStart'>Start: {formatAMPM(dateStart)} - End: {formatAMPM(dateEnd)} </p>
+            <p id='eventDescription'>{event.description}</p>
+            <a href={event.htmlLink} id="toCal" >View in Google Calendar</a>
+          </div>
+        )}
+
+      </div>
   }
 }
 
