@@ -110,6 +110,8 @@ class App extends Component {
         <Navbar />
         
         <div id="main-container">
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }} />
           <div id="left-column">
             <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
 
@@ -133,8 +135,7 @@ class App extends Component {
               <EventList events ={this.state.events} />
             </div>
           </div>
-          <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }} />
+          
       </div>
     );
   }
