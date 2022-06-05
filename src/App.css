@@ -402,14 +402,14 @@ ul.EventList{
   
 }
 
-@media all and (min-width: 353px) and (max-width: 700px) {
+@media screen and (min-width: 200px) and (max-width: 700px) {
   #main-container{
     display: flex;
     flex-direction: column;
   }
 }
 
-@media all and (max-width:750px) {
+@media screen and (max-width:4000) {
   #main-container{
     display: flex;
     flex-direction: row;
