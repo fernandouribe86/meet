@@ -68,6 +68,8 @@
   font-weight: 100;
   color: white;
   margin-top: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 #welcomeLogo{
@@ -436,6 +438,9 @@ ul.EventList{
     width: 100%;
   }
 
+  #welcomeScreen{
+    padding-top: 0;
+  }
 
 }
 
