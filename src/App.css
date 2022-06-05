@@ -424,8 +424,7 @@ ul.EventList{
   #main-container{
     display: flex;
     flex-direction: column;
-    margin-top: 0;
-    padding-top: 75px;
+    padding-top: 60px;
   }
 
   #left-column{
