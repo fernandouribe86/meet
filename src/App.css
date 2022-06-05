@@ -410,13 +410,14 @@ ul.EventList{
 
   #left-column{
     width: 100%;
+    height: auto;
   }
 
   #right-column{
     width: 100%;
   }
 
-  
+
 }
 
 @media screen and (max-width:4000) {
