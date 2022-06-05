@@ -401,3 +401,17 @@ ul.EventList{
   text-transform: uppercase;
   
 }
+
+@media all and (min-width: 353px) and (max-width: 700px) {
+  #main-container{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width:750px) {
+  #main-container{
+    display: flex;
+    flex-direction: row;
+  }
+}
