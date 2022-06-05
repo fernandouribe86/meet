@@ -407,6 +407,16 @@ ul.EventList{
     display: flex;
     flex-direction: column;
   }
+
+  #left-column{
+    width: 100%;
+  }
+
+  #right-column{
+    width: 100%;
+  }
+
+  
 }
 
 @media screen and (max-width:4000) {
