@@ -120,8 +120,8 @@
   background-color: #D7D8DA;
   min-height: 100vh;
   padding-top: 80px;
-  /* display: flex;
-  flex-direction: row; */
+  display: flex;
+  /* flex-direction: row; */
 }
 
 #left-column{
