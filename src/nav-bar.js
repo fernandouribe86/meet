@@ -17,7 +17,7 @@ class Navbar extends Component{
       // return localStorage.getItem("access_token");
       this.setState({hide: ""});
     } else {
-      this.setState({hide: "disabled"});
+      this.setState({hide: "hidden"});
       // return false;
     }
   };
@@ -32,7 +32,7 @@ class Navbar extends Component{
 
     return <div id="navbar">
       <img id="navbar-logo" src={logo} alt="Meet Logo" />
-      <button id="logout" disabled={this.state.hide} onClick={() => { onLoggedOut() }}>logout</button>
+      <button id="logout" hidden={this.state.hide} onClick={() => { onLoggedOut() }}>logout</button>
     </div>
   }
 }
