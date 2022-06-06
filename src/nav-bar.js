@@ -3,27 +3,32 @@ import logo from "./meet-logo-neon.svg";
 
 class Navbar extends Component{
   
+  state = {hide: ""};
+
   render(){
 
     const onLoggedOut = () => {
+      isAuth();
       localStorage.clear();
       window.open("/meet", "_self");
     }
 
     const isAuth = () => {
       if(typeof window == "undefined") {
-        return false;
+        return ;
       }
       if(localStorage.getItem("access_token")) {
-        return localStorage.getItem("access_token");
+        // return localStorage.getItem("access_token");
+        this.setState({hide: ""});
       } else {
-        return false;
+        this.setState({hide: "disabled"});
+        // return false;
       }
     };
 
     return <div id="navbar">
       <img id="navbar-logo" src={logo} alt="Meet Logo" />
-      <button id="logout"  onClick={() => { onLoggedOut() }}>logout</button>
+      <button id="logout" disabled={this.state.hide} onClick={() => { onLoggedOut() }}>logout</button>
     </div>
   }
 }
